@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+}
+
+model Item {
+  id    String @id @default(uuid())
+  imageUrl String
+  name  String
+  price Float
+  stripeProdId  String? 
+  stripePriceId String? 
+}
+
+model conversations {
+  id       Int     @id @default(autoincrement())
+  sender   String? 
+  message  String?
+  response String?
+
+  @@index([id], name: "ix_conversations_id")
+}
