@@ -29,7 +29,7 @@ const Items = ({ data }: ItemsProps) => {
   return (
     <div className="grid gap-8 w-full px-24 pt-40 grid-cols-5">
       {data.map((item) => (
-        <Card className=" col-span-1">
+        <Card className=" col-span-1" key={item.id}>
           <CardHeader>
             <div className="relative h-44 w-full">
               <Image
